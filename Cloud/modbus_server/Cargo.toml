@@ -1,0 +1,10 @@
+# Cargo.toml
+[package]
+name = "modbus_server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+
+# 不用 tokio-modbus！自己手写解帧，代码更少更可控
