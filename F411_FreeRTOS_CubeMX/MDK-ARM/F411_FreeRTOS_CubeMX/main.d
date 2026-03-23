@@ -26,6 +26,8 @@ f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_c
 f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h
+f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h
 f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 f411_freertos_cubemx\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
@@ -43,5 +45,6 @@ f411_freertos_cubemx\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/
 f411_freertos_cubemx\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 f411_freertos_cubemx\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 f411_freertos_cubemx\main.o: ../Core/Inc/dma.h
+f411_freertos_cubemx\main.o: ../Core/Inc/i2c.h
 f411_freertos_cubemx\main.o: ../Core/Inc/usart.h
 f411_freertos_cubemx\main.o: ../Core/Inc/gpio.h

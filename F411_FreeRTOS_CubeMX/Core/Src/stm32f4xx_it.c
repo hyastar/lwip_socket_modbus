@@ -179,14 +179,12 @@ void TIM1_UP_TIM10_IRQHandler(void)
 
 /**
   * @brief This function handles USART1 global interrupt.
-  * @note  BSP_USART1_Init() 会使能 IDLE 中断，本函数负责调用 BSP 中断处理
   */
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
   /* USER CODE END USART1_IRQn 0 */
-  /* BSP USART1 中断处理（包含 IDLE 检测 + 数据入队） */
-  BSP_USART1_IRQ_Handler();
+  HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
 
   /* USER CODE END USART1_IRQn 1 */

@@ -35,6 +35,8 @@ f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_h
 f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h
+f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h
 f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 f411_freertos_cubemx\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
@@ -45,3 +47,6 @@ f411_freertos_cubemx\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSI
 f411_freertos_cubemx\freertos.o: ../BSP/Inc/bsp_usart.h
 f411_freertos_cubemx\freertos.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 f411_freertos_cubemx\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+f411_freertos_cubemx\freertos.o: ../algorithm/Inc/inference_task.h
+f411_freertos_cubemx\freertos.o: ../algorithm/Inc/sensor_task.h
+f411_freertos_cubemx\freertos.o: ../algorithm/Inc/algo_chain.h
