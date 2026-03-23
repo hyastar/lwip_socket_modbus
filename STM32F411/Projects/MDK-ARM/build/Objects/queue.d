@@ -1,0 +1,44 @@
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\queue.c
+.\build\objects\queue.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\objects\queue.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\include\FreeRTOS.h
+.\build\objects\queue.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\build\objects\queue.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\objects\queue.o: ..\..\Config\FreeRTOSConfig.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Include\core_cm4.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Include\cmsis_version.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Include\cmsis_compiler.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Include\cmsis_armcc.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Include\mpu_armv7.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h
+.\build\objects\queue.o: ..\..\Config\stm32f4xx_hal_conf.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h
+.\build\objects\queue.o: ..\..\System\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\Legacy/stm32_hal_legacy.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h
+.\build\objects\queue.o: ..\..\System\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\include\projdefs.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\include\portable.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\include\deprecated_definitions.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\include\mpu_wrappers.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\include\task.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\include\list.h
+.\build\objects\queue.o: ..\..\Middlewares\FreeRTOS\include\queue.h

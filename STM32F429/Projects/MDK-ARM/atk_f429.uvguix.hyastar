@@ -1893,8 +1893,8 @@
       <Doc>
         <Name>..\..\Middlewares\Modbus\Src\modbus_tcp_client.c</Name>
         <ColumnNumber>0</ColumnNumber>
-        <TopLine>188</TopLine>
-        <CurrentLine>214</CurrentLine>
+        <TopLine>1</TopLine>
+        <CurrentLine>1</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>

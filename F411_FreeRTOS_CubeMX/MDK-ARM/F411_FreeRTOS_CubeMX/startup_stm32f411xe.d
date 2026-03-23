@@ -1,0 +1,1 @@
+f411_freertos_cubemx\startup_stm32f411xe.o: startup_stm32f411xe.s
