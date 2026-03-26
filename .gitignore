@@ -1,0 +1,179 @@
+# =============================================
+# STM32 编译产物 (Keil uVision)
+# =============================================
+
+# 链接后的可执行文件
+*.hex
+*.bin
+*.elf
+*.axf
+
+# 编译中间文件
+*.lst
+*.map
+*.d
+*.o
+*.lst
+*.htm
+*.sct
+*.dep
+*.lnp
+*.scr
+
+# MDK-ARM 输出目录
+**/MDK-ARM/**/*.hex
+**/MDK-ARM/**/*.bin
+**/MDK-ARM/**/*.map
+**/MDK-ARM/**/*.lst
+**/MDK-ARM/**/*.elf
+**/MDK-ARM/**/*.axf
+**/MDK-ARM/**/*.d
+**/MDK-ARM/**/*.o
+**/MDK-ARM/**/*.htm
+**/MDK-ARM/**/*.dep
+
+# Keil 项目自生成文件
+*.Opt
+*.Uv2
+*.Uv3
+*.Uv4
+*.UV4
+*.Pack
+*.pack
+*.gpdsc
+*.sdf
+
+# STM32F411 项目
+STM32F411/Projects/MDK-ARM/build/
+STM32F411/Output/
+
+# STM32F429 项目
+STM32F429/Projects/MDK-ARM/build/
+STM32F429/Output/
+STM32F429/**/*.uvgui*
+STM32F429/**/*.bak
+
+# F411_FreeRTOS_CubeMX 项目
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.hex
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.map
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.lst
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.elf
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.axf
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.d
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.o
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.htm
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.dep
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.lnp
+F411_FreeRTOS_CubeMX/MDK-ARM/**/*.scr
+F411_FreeRTOS_CubeMX/MDK-ARM/F411_FreeRTOS_CubeMX.uvgui*
+F411_FreeRTOS_CubeMX/MDK-ARM/*.bak
+F411_FreeRTOS_CubeMX/MDK-ARM/*.Opt
+F411_FreeRTOS_CubeMX/MDK-ARM/*.Uv2
+F411_FreeRTOS_CubeMX/MDK-ARM/*.sct
+F411_FreeRTOS_CubeMX/Debug/
+F411_FreeRTOS_CubeMX/Release/
+
+# CubeMX 自动生成（已删除的 HAL 驱动重新生成时会产生）
+Drivers/
+Core/
+*.ioc.bak
+
+# =============================================
+# STM32F411 DSP Examples（不需要源码）
+# =============================================
+STM32F411/System/CMSIS/DSP/Examples/
+STM32F411/System/CMSIS/DSP/Results/
+STM32F411/System/CMSIS/DSP/Documentation/
+
+# =============================================
+# Rust / Cargo 构建产物
+# =============================================
+Cloud/modbus_server/target/
+Cloud/**/Cargo.lock
+Cloud/**/target/
+
+# =============================================
+# Python 模型 / 训练输出
+# =============================================
+*.h5
+*.keras
+*.ckpt
+*.onnx
+*.tflite
+*.pb
+*.pkl
+*.joblib
+*.pth
+
+# TensorFlow / Keras
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Python 数据集下载目录
+data/
+datasets/
+logs/
+models/
+
+# =============================================
+# Python 虚拟环境
+# =============================================
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# =============================================
+# IDE / 编辑器
+# =============================================
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =============================================
+# 敏感文件
+# =============================================
+*.env
+.env.local
+.env.*.local
+credentials.json
+secrets.json
+*.pem
+*.key
+*.crt
+*.csr
+
+# =============================================
+# 日志和临时文件
+# =============================================
+*.log
+*.tmp
+*.temp
+.cache/
+*.bak
+*.orig
+*.rej
+*.patch

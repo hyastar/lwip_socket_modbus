@@ -1,0 +1,574 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        01/Nov/2025  11:39:51 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  E:\Coding\7 zigbee STM32\Projects\zstack\Utilitie /
+//                          s\SerialApp\Source\adc_mq2.c                      /
+//    Command line       =  -f "E:\Coding\7 zigbee STM32\Projects\zstack\Util /
+//                          ities\SerialApp\CC2530DB\..\..\..\Tools\CC2530DB\ /
+//                          f8wEndev.cfg" (-DCPU32MHZ -DROOT=__near_func      /
+//                          -DBLINK_LEDS) -f "E:\Coding\7 zigbee              /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\Tools\CC2530DB\f8wConfig.cfg"          /
+//                          (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR     /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1223                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "E:\Coding\7 zigbee        /
+//                          STM32\Projects\zstack\Utilities\SerialApp\Source\ /
+//                          adc_mq2.c" -D ZIGBEEPRO -D ZDO_ENDDEVICE -D       /
+//                          HAL_UART=TRUE -D HAL_ADC=TRUE -D                  /
+//                          ZDAPP_CONFIG_PAN_ID=0x4242 -D SERIAL_APP_PORT=0   /
+//                          -D LCD_SUPPORTED -D ZDAPP_CONFIG_PAN_ID=0x4242    /
+//                          -D DEFAULT_CHANLIST=0x00008000 -D NV_INIT=FALSE   /
+//                          -D NV_RESTORE=FALSE -lC "E:\Coding\7 zigbee       /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\EndDeviceEB-Pro\List\" -lA "E:\Coding\7 zigbee  /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\EndDeviceEB-Pro\List\" --diag_suppress          /
+//                          Pe001,Pa010,Pe069 -o "E:\Coding\7 zigbee          /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\EndDeviceEB-Pro\Obj\" -e --debug --core=plain   /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 8 -I "E:\Coding\7 zigbee        /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\" -I "E:\Coding\7 zigbee                        /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\SOURCE\" -I "E:\Coding\7 zigbee              /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\ZMAIN\TI2530DB\" -I "E:\Coding\7       /
+//                          zigbee STM32\Projects\zstack\Utilities\SerialApp\ /
+//                          CC2530DB\..\..\..\..\..\COMPONENTS\MT\" -I        /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\H /
+//                          AL\INCLUDE\" -I "E:\Coding\7 zigbee               /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\" /
+//                           -I "E:\Coding\7 zigbee                           /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\OSAL\MCU\CCSOC\" -I   /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\O /
+//                          SAL\INCLUDE\" -I "E:\Coding\7 zigbee              /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\STACK\AF\" -I         /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\S /
+//                          TACK\NWK\" -I "E:\Coding\7 zigbee                 /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\STACK\SEC\" -I        /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\S /
+//                          TACK\SAPI\" -I "E:\Coding\7 zigbee                /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\STACK\SYS\" -I        /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\S /
+//                          TACK\ZDO\" -I "E:\Coding\7 zigbee                 /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\ZMAC\F8W\" -I         /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\Z /
+//                          MAC\" -I "E:\Coding\7 zigbee                      /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\SERVICES\SADDR\" -I   /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\S /
+//                          ERVICES\SDATA\" -I "E:\Coding\7 zigbee            /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\MAC\INCLUDE\" -I      /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\M /
+//                          AC\HIGH_LEVEL\" -I "E:\Coding\7 zigbee            /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\" /
+//                           -I "E:\Coding\7 zigbee                           /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\S /
+//                          INGLE_CHIP\" -Ohz --require_prototypes            /
+//    List file          =  E:\Coding\7 zigbee STM32\Projects\zstack\Utilitie /
+//                          s\SerialApp\CC2530DB\EndDeviceEB-Pro\List\adc_mq2 /
+//                          .s51                                              /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME adc_mq2
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??adc_mq2_Init?relay
+        FUNCTION ??adc_mq2_Init?relay,0203H
+        PUBLIC ??adc_mq2_ReadData?relay
+        FUNCTION ??adc_mq2_ReadData?relay,0203H
+        PUBLIC ??adc_mq2_StartMeasurement?relay
+        FUNCTION ??adc_mq2_StartMeasurement?relay,0203H
+        PUBWEAK APCFG
+        PUBWEAK P0SEL
+        PUBLIC adc_mq2_Init
+        FUNCTION adc_mq2_Init,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC adc_mq2_ReadData
+        FUNCTION adc_mq2_ReadData,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 3, STACK
+        PUBLIC adc_mq2_StartMeasurement
+        FUNCTION adc_mq2_StartMeasurement,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+HalAdcInit          SYMBOL "HalAdcInit"
+HalAdcRead          SYMBOL "HalAdcRead"
+osal_set_event      SYMBOL "osal_set_event"
+??HalAdcInit?relay  SYMBOL "?relay", HalAdcInit
+??HalAdcRead?relay  SYMBOL "?relay", HalAdcRead
+??osal_set_event?relay SYMBOL "?relay", osal_set_event
+adc_mq2_Init        SYMBOL "adc_mq2_Init"
+??adc_mq2_Init?relay SYMBOL "?relay", adc_mq2_Init
+adc_mq2_ReadData    SYMBOL "adc_mq2_ReadData"
+??adc_mq2_ReadData?relay SYMBOL "?relay", adc_mq2_ReadData
+adc_mq2_StartMeasurement SYMBOL "adc_mq2_StartMeasurement"
+??adc_mq2_StartMeasurement?relay SYMBOL "?relay", adc_mq2_StartMeasurement
+
+        EXTERN HalAdcInit
+        FUNCTION HalAdcInit,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalAdcRead
+        FUNCTION HalAdcRead,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_set_event
+        FUNCTION osal_set_event,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??HalAdcInit?relay
+        FUNCTION ??HalAdcInit?relay,00H
+        EXTERN ??HalAdcRead?relay
+        FUNCTION ??HalAdcRead?relay,00H
+        EXTERN ??osal_set_event?relay
+        FUNCTION ??osal_set_event?relay,00H
+
+// E:\Coding\7 zigbee STM32\Projects\zstack\Utilities\SerialApp\Source\adc_mq2.c
+//    1 /**************************************************************************************************
+//    2   Filename:       adc_mq2.c
+//    3   Revised:        $Date: 2025-10-30 $
+//    4 
+//    5   Description:    MQ2 烟雾传感器模块驱动 实现文件。
+//    6                   (V3.2 版: 支持非阻塞 OSAL 事件)
+//    7                   使用 Z-Stack HAL ADC 驱动读取 P0.6 (AIN6)。
+//    8 **************************************************************************************************/
+//    9 
+//   10 /*********************************************************************
+//   11  * INCLUDES
+//   12  */
+//   13 #include "adc_mq2.h"
+//   14 #include <ioCC2530.h>    // 包含寄存器定义 (用于 GPIO 配置)
+
+        ASEGN SFR_AN:DATA:NOROOT,0f2H
+// unsigned char volatile __sfr APCFG
+APCFG:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f3H
+// unsigned char volatile __sfr P0SEL
+P0SEL:
+        DATA8
+        DS 1
+//   15 #include "hal_adc.h"     // 包含 Z-Stack 官方 ADC 驱动
+//   16 #include "OSAL.h"        // (V3.2) 需要 osal_set_event
+//   17 #include "SerialApp.h"   // (V3.2) 需要 SHT30_DATA_READY_EVT 事件定义
+//   18 
+//   19 /*********************************************************************
+//   20  * LOCAL VARIABLES
+//   21  */
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   22 static uint8 mq2_TaskID;      // (V3.2) 保存应用层任务 ID
+mq2_TaskID:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+//   23 static uint16 mq2_AdcValue;   // (V3.2) 保存 StartMeasurement 时的 ADC 读数
+mq2_AdcValue:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//   24 
+//   25 /*********************************************************************
+//   26  * PUBLIC FUNCTIONS
+//   27  */
+//   28 
+//   29 /**
+//   30  * @brief   初始化 MQ2 传感器的 ADC 引脚 (P0.6 / AIN6)。
+//   31  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   32 void adc_mq2_Init(uint8 task_id)
+adc_mq2_Init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function adc_mq2_Init
+        CODE
+//   33 {
+        FUNCALL adc_mq2_Init, HalAdcInit
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV     A,R1
+//   34   // (V3.2) 保存 Task ID
+//   35   mq2_TaskID = task_id;
+        MOV     DPTR,#mq2_TaskID
+        MOVX    @DPTR,A
+//   36   
+//   37   // 仅在项目选项中定义了 HAL_ADC=TRUE 时才初始化
+//   38 #if (HAL_ADC == TRUE)
+//   39   
+//   40     // 1. 将 P0.6 (AIN6) 设置为外设功能 (P0SEL |= 0x40)
+//   41     P0SEL |= 0x40;
+        ORL     0xf3,#0x40
+//   42     
+//   43     // 2. 将 P0.6 (AIN6) 设置为模拟输入 (APCFG |= 0x40)
+//   44     APCFG |= 0x40;
+        ORL     0xf2,#0x40
+//   45 
+//   46     // 3. 初始化 Z-Stack ADC 模块
+//   47     HalAdcInit();
+        ; Setup parameters for call to function HalAdcInit
+        LCALL   ??HalAdcInit?relay
+//   48     
+//   49 #endif
+//   50 }
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock0
+        REQUIRE P0SEL
+        REQUIRE APCFG
+//   51 
+//   52 /**
+//   53  * @brief   (V3.2) 启动一次 MQ2 测量 (非阻塞)。
+//   54  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   55 void adc_mq2_StartMeasurement(void)
+adc_mq2_StartMeasurement:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function adc_mq2_StartMeasurement
+        CODE
+//   56 {
+        FUNCALL adc_mq2_StartMeasurement, HalAdcRead
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL adc_mq2_StartMeasurement, osal_set_event
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   57 #if (HAL_ADC == TRUE)
+//   58     // 1. 立即读取 ADC P0.6 通道 (12位精度)
+//   59     // (HAL_ADC_CHANNEL_6 对应 AIN6, 即 P0.6)
+//   60     mq2_AdcValue = HalAdcRead(HAL_ADC_CHANNEL_6, HAL_ADC_RESOLUTION_12);
+        ; Setup parameters for call to function HalAdcRead
+        MOV     R2,#0x3
+        MOV     R1,#0x6
+        LCALL   ??HalAdcRead?relay
+        MOV     DPTR,#mq2_AdcValue
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+//   61   
+//   62 #else
+//   63     // ADC 功能未开启
+//   64     mq2_AdcValue = 0x0000;
+//   65 #endif
+//   66 
+//   67     // 2. (V3.2) 立即设置 OSAL 事件, 通知应用层数据已就绪
+//   68     // (模拟 0ms 延时)
+//   69     osal_set_event(mq2_TaskID, SHT30_DATA_READY_EVT);
+        ; Setup parameters for call to function osal_set_event
+        MOV     R2,#0x10
+        MOV     R3,#0x0
+        MOV     DPTR,#mq2_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??osal_set_event?relay
+        CFI EndBlock cfiBlock1
+//   70 }
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+//   71 
+//   72 
+//   73 /**
+//   74  * @brief   (V3.2) 读取 MQ2 传感器的 ADC 原始值。
+//   75  * @return  V3.1 规范的 Payload (2 字节)
+//   76  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   77 uint8 adc_mq2_ReadData(uint8 *pBuf)
+adc_mq2_ReadData:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function adc_mq2_ReadData
+        CODE
+//   78 {
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   79   // 1. 按照 V3.1 规范 (DeviceType 0x20) 打包数据
+//   80   //    (数据在 StartMeasurement 时已经读取并保存在 mq2_AdcValue 中)
+//   81   // pBuf[0..1] = 2 字节 uint16 (小端序)
+//   82   pBuf[0] = (uint8)(mq2_AdcValue & 0xFF);       // 低字节
+        MOV     DPTR,#mq2_AdcValue
+        MOVX    A,@DPTR
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    @DPTR,A
+//   83   pBuf[1] = (uint8)((mq2_AdcValue >> 8) & 0xFF); // 高字节
+        MOV     DPTR,#mq2_AdcValue + 1
+        MOVX    A,@DPTR
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        MOVX    @DPTR,A
+//   84 
+//   85   // 2. 返回 Payload 长度
+//   86   return 2;
+        MOV     R1,#0x2
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock3
+//   87 }
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??adc_mq2_Init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    adc_mq2_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??adc_mq2_StartMeasurement?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    adc_mq2_StartMeasurement
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??adc_mq2_ReadData?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    adc_mq2_ReadData
+
+        END
+// 
+// 89 bytes in segment BANKED_CODE
+// 18 bytes in segment BANK_RELAYS
+//  2 bytes in segment SFR_AN
+//  3 bytes in segment XDATA_Z
+// 
+// 107 bytes of CODE  memory
+//   0 bytes of DATA  memory (+ 2 bytes shared)
+//   3 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

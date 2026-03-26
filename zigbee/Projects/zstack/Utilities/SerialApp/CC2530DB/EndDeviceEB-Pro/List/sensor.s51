@@ -1,0 +1,694 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        01/Nov/2025  11:40:02 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  E:\Coding\7 zigbee STM32\Projects\zstack\Utilitie /
+//                          s\SerialApp\Source\sensor.c                       /
+//    Command line       =  -f "E:\Coding\7 zigbee STM32\Projects\zstack\Util /
+//                          ities\SerialApp\CC2530DB\..\..\..\Tools\CC2530DB\ /
+//                          f8wEndev.cfg" (-DCPU32MHZ -DROOT=__near_func      /
+//                          -DBLINK_LEDS) -f "E:\Coding\7 zigbee              /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\Tools\CC2530DB\f8wConfig.cfg"          /
+//                          (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR     /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1223                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "E:\Coding\7 zigbee        /
+//                          STM32\Projects\zstack\Utilities\SerialApp\Source\ /
+//                          sensor.c" -D ZIGBEEPRO -D ZDO_ENDDEVICE -D        /
+//                          HAL_UART=TRUE -D HAL_ADC=TRUE -D                  /
+//                          ZDAPP_CONFIG_PAN_ID=0x4242 -D SERIAL_APP_PORT=0   /
+//                          -D LCD_SUPPORTED -D ZDAPP_CONFIG_PAN_ID=0x4242    /
+//                          -D DEFAULT_CHANLIST=0x00008000 -D NV_INIT=FALSE   /
+//                          -D NV_RESTORE=FALSE -lC "E:\Coding\7 zigbee       /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\EndDeviceEB-Pro\List\" -lA "E:\Coding\7 zigbee  /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\EndDeviceEB-Pro\List\" --diag_suppress          /
+//                          Pe001,Pa010,Pe069 -o "E:\Coding\7 zigbee          /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\EndDeviceEB-Pro\Obj\" -e --debug --core=plain   /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 8 -I "E:\Coding\7 zigbee        /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\" -I "E:\Coding\7 zigbee                        /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\SOURCE\" -I "E:\Coding\7 zigbee              /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\ZMAIN\TI2530DB\" -I "E:\Coding\7       /
+//                          zigbee STM32\Projects\zstack\Utilities\SerialApp\ /
+//                          CC2530DB\..\..\..\..\..\COMPONENTS\MT\" -I        /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\H /
+//                          AL\INCLUDE\" -I "E:\Coding\7 zigbee               /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\" /
+//                           -I "E:\Coding\7 zigbee                           /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\OSAL\MCU\CCSOC\" -I   /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\O /
+//                          SAL\INCLUDE\" -I "E:\Coding\7 zigbee              /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\STACK\AF\" -I         /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\S /
+//                          TACK\NWK\" -I "E:\Coding\7 zigbee                 /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\STACK\SEC\" -I        /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\S /
+//                          TACK\SAPI\" -I "E:\Coding\7 zigbee                /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\STACK\SYS\" -I        /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\S /
+//                          TACK\ZDO\" -I "E:\Coding\7 zigbee                 /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\ZMAC\F8W\" -I         /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\Z /
+//                          MAC\" -I "E:\Coding\7 zigbee                      /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\SERVICES\SADDR\" -I   /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\S /
+//                          ERVICES\SDATA\" -I "E:\Coding\7 zigbee            /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\MAC\INCLUDE\" -I      /
+//                          "E:\Coding\7 zigbee STM32\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\M /
+//                          AC\HIGH_LEVEL\" -I "E:\Coding\7 zigbee            /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\" /
+//                           -I "E:\Coding\7 zigbee                           /
+//                          STM32\Projects\zstack\Utilities\SerialApp\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\S /
+//                          INGLE_CHIP\" -Ohz --require_prototypes            /
+//    List file          =  E:\Coding\7 zigbee STM32\Projects\zstack\Utilitie /
+//                          s\SerialApp\CC2530DB\EndDeviceEB-Pro\List\sensor. /
+//                          s51                                               /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME sensor
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??Sensor_GetDeviceType?relay
+        FUNCTION ??Sensor_GetDeviceType?relay,0203H
+        PUBLIC ??Sensor_Init?relay
+        FUNCTION ??Sensor_Init?relay,0203H
+        PUBLIC ??Sensor_ProcessEvent?relay
+        FUNCTION ??Sensor_ProcessEvent?relay,0203H
+        PUBLIC ??Sensor_ReadData?relay
+        FUNCTION ??Sensor_ReadData?relay,0203H
+        PUBLIC ??Sensor_StartMeasurement?relay
+        FUNCTION ??Sensor_StartMeasurement?relay,0203H
+        PUBLIC ??Sensor_StartPeriodic?relay
+        FUNCTION ??Sensor_StartPeriodic?relay,0203H
+        PUBLIC Sensor_GetDeviceType
+        FUNCTION Sensor_GetDeviceType,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC Sensor_Init
+        FUNCTION Sensor_Init,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC Sensor_ProcessEvent
+        FUNCTION Sensor_ProcessEvent,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC Sensor_ReadData
+        FUNCTION Sensor_ReadData,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Sensor_StartMeasurement
+        FUNCTION Sensor_StartMeasurement,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Sensor_StartPeriodic
+        FUNCTION Sensor_StartPeriodic,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+adc_mq5_Init        SYMBOL "adc_mq5_Init"
+osal_start_timerEx  SYMBOL "osal_start_timerEx"
+adc_mq5_StartMeasurement SYMBOL "adc_mq5_StartMeasurement"
+adc_mq5_ReadData    SYMBOL "adc_mq5_ReadData"
+??adc_mq5_Init?relay SYMBOL "?relay", adc_mq5_Init
+??adc_mq5_ReadData?relay SYMBOL "?relay", adc_mq5_ReadData
+??adc_mq5_StartMeasurement?relay SYMBOL "?relay", adc_mq5_StartMeasurement
+??osal_start_timerEx?relay SYMBOL "?relay", osal_start_timerEx
+Sensor_GetDeviceType SYMBOL "Sensor_GetDeviceType"
+??Sensor_GetDeviceType?relay SYMBOL "?relay", Sensor_GetDeviceType
+Sensor_Init         SYMBOL "Sensor_Init"
+??Sensor_Init?relay SYMBOL "?relay", Sensor_Init
+Sensor_ProcessEvent SYMBOL "Sensor_ProcessEvent"
+??Sensor_ProcessEvent?relay SYMBOL "?relay", Sensor_ProcessEvent
+Sensor_ReadData     SYMBOL "Sensor_ReadData"
+??Sensor_ReadData?relay SYMBOL "?relay", Sensor_ReadData
+Sensor_StartMeasurement SYMBOL "Sensor_StartMeasurement"
+??Sensor_StartMeasurement?relay SYMBOL "?relay", Sensor_StartMeasurement
+Sensor_StartPeriodic SYMBOL "Sensor_StartPeriodic"
+??Sensor_StartPeriodic?relay SYMBOL "?relay", Sensor_StartPeriodic
+
+        EXTERN adc_mq5_Init
+        FUNCTION adc_mq5_Init,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_start_timerEx
+        FUNCTION osal_start_timerEx,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN adc_mq5_StartMeasurement
+        FUNCTION adc_mq5_StartMeasurement,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN adc_mq5_ReadData
+        FUNCTION adc_mq5_ReadData,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??adc_mq5_Init?relay
+        FUNCTION ??adc_mq5_Init?relay,00H
+        EXTERN ??adc_mq5_ReadData?relay
+        FUNCTION ??adc_mq5_ReadData?relay,00H
+        EXTERN ??adc_mq5_StartMeasurement?relay
+        FUNCTION ??adc_mq5_StartMeasurement?relay,00H
+        EXTERN ??osal_start_timerEx?relay
+        FUNCTION ??osal_start_timerEx?relay,00H
+
+// E:\Coding\7 zigbee STM32\Projects\zstack\Utilities\SerialApp\Source\sensor.c
+//    1 /**************************************************************************************************
+//    2   Filename:       sensor.c
+//    3   Revised:        $Date: 2025-10-30 $
+//    4 
+//    5   Description:    通用传感器管理层 实现文件。
+//    6                   (V3.2 版: 支持非阻塞启动和读取)
+//    7                   (V3.4 版: 彻底移除 Internal Temp 支持)
+//    8 **************************************************************************************************/
+//    9 
+//   10 /*********************************************************************
+//   11  * INCLUDES
+//   12  */
+//   13 #include "sensor.h"
+//   14 #include "OSAL.h"
+//   15 #include "OSAL_Timers.h" // 包含了 osal_start_timerEx
+//   16 #include "SerialApp.h"   // (V3.2) 需要 SHT30_DATA_READY_EVT
+//   17 
+//   18 // --- 包含所有可能的具体传感器驱动 ---
+//   19 // #include "adc_internal_temp.h" // (已移除)
+//   20 #include "i2c_sht30.h"        
+//   21 #include "adc_mq2.h"
+//   22 #include "adc_mq5.h"
+//   23 // #include "i2c_bmp280.h" 
+//   24 
+//   25 /*********************************************************************
+//   26  * LOCAL VARIABLES
+//   27  */
+//   28 #if !defined(ZDO_COORDINATOR)
+//   29 // 保存应用层的任务 ID，用于发送事件
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   30 static uint8 sensor_TaskID;
+sensor_TaskID:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//   31 #endif
+//   32 
+//   33 /*********************************************************************
+//   34  * PUBLIC FUNCTIONS
+//   35  */
+//   36 
+//   37 /**
+//   38  * @brief   初始化传感器管理层和底层的驱动。
+//   39  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   40 void Sensor_Init(uint8 task_id)
+Sensor_Init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function Sensor_Init
+        CODE
+//   41 {
+        FUNCALL Sensor_Init, adc_mq5_Init
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV     A,R1
+//   42   // 协调器不需要初始化任何传感器
+//   43 #if !defined(ZDO_COORDINATOR)
+//   44 
+//   45   sensor_TaskID = task_id;
+        MOV     DPTR,#sensor_TaskID
+        MOVX    @DPTR,A
+//   46   
+//   47   // --- 根据编译时宏，调用特定驱动的初始化函数 ---
+//   48   // (V3.2 更新: 所有 Init 函数现在都需要 task_id)
+//   49   
+//   50   #if (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_SHT30)
+//   51     i2c_sht30_Init(task_id);
+//   52     
+//   53   #elif (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_MQ2)
+//   54     adc_mq2_Init(task_id);
+//   55     
+//   56   #elif (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_MQ5)
+//   57     adc_mq5_Init(task_id);
+        ; Setup parameters for call to function adc_mq5_Init
+        LCALL   ??adc_mq5_Init?relay
+//   58     
+//   59   #endif
+//   60   
+//   61 #else
+//   62   (void)task_id; 
+//   63 #endif // !defined(ZDO_COORDINATOR)
+//   64 }
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock0
+//   65 
+//   66 /**
+//   67  * @brief   启动周期性的传感器读取定时器。
+//   68  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   69 void Sensor_StartPeriodic(void)
+Sensor_StartPeriodic:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function Sensor_StartPeriodic
+        CODE
+//   70 {
+        FUNCALL Sensor_StartPeriodic, osal_start_timerEx
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   71 #if !defined(ZDO_COORDINATOR)
+//   72   osal_start_timerEx(sensor_TaskID, SENSOR_READ_EVT, SENSOR_READ_PERIOD);
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV     R4,#-0x78
+        MOV     R5,#0x13
+        MOV     R2,#0x4
+        MOV     R3,#0x0
+        MOV     DPTR,#sensor_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??osal_start_timerEx?relay
+        CFI EndBlock cfiBlock1
+//   73 #endif
+//   74 }
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+//   75 
+//   76 /**
+//   77  * @brief   (V3.2 新增) 启动一次传感器测量 (非阻塞)。
+//   78  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   79 void Sensor_StartMeasurement(void)
+Sensor_StartMeasurement:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function Sensor_StartMeasurement
+        CODE
+//   80 {
+        FUNCALL Sensor_StartMeasurement, adc_mq5_StartMeasurement
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   81   // 协调器不执行测量
+//   82 #if !defined(ZDO_COORDINATOR)
+//   83 
+//   84   // --- 根据编译时宏，调用特定驱动的启动函数 ---
+//   85     
+//   86   #if (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_SHT30)
+//   87     i2c_sht30_StartMeasurement();
+//   88     
+//   89   #elif (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_MQ2)
+//   90     adc_mq2_StartMeasurement();
+//   91     
+//   92   #elif (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_MQ5)
+//   93     adc_mq5_StartMeasurement();
+        ; Setup parameters for call to function adc_mq5_StartMeasurement
+        LCALL   ??adc_mq5_StartMeasurement?relay
+//   94 
+//   95   #endif
+//   96 
+//   97 #endif // !defined(ZDO_COORDINATOR)
+//   98 }
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock3
+//   99 
+//  100 /**
+//  101  * @brief   传感器事件处理器 (保留)。
+//  102  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  103 uint16 Sensor_ProcessEvent(uint16 events)
+Sensor_ProcessEvent:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function Sensor_ProcessEvent
+        CODE
+//  104 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  105   (void)events;
+//  106   return events; 
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock4
+//  107 }
+//  108 
+//  109 /**
+//  110  * @brief   获取本节点的设备类型 (DeviceType)。
+//  111  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  112 DeviceType_t Sensor_GetDeviceType(void)
+Sensor_GetDeviceType:
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function Sensor_GetDeviceType
+        CODE
+//  113 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  114 #if !defined(ZDO_COORDINATOR)
+//  115   // V3.9 修正: 显式转换为 (DeviceType_t) 以消除 Pe188 警告
+//  116   return (DeviceType_t)ACTIVE_SENSOR_TYPE;
+        MOV     R1,#0x21
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock5
+//  117 #else
+//  118   return (DeviceType_t)0; 
+//  119 #endif
+//  120 }
+//  121 
+//  122 /**
+//  123  * @brief   (V3.2 修改) 将传感器数据读取到一个缓冲区中。
+//  124  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  125 uint8 Sensor_ReadData(uint8 *pBuf)
+Sensor_ReadData:
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function Sensor_ReadData
+        CODE
+//  126 {
+        FUNCALL Sensor_ReadData, adc_mq5_ReadData
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  127   // 协调器不读取数据
+//  128 #if !defined(ZDO_COORDINATOR)
+//  129 
+//  130   // --- 根据编译时宏，调用特定驱动的读取函数 ---
+//  131   // (V3.2 更新: 全部调用 _ReadData)
+//  132     
+//  133   #if (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_SHT30)
+//  134     return i2c_sht30_ReadData(pBuf);
+//  135     
+//  136   #elif (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_MQ2)
+//  137     return adc_mq2_ReadData(pBuf);
+//  138     
+//  139   #elif (ACTIVE_SENSOR_TYPE == DEVICE_TYPE_MQ5)
+//  140     return adc_mq5_ReadData(pBuf);
+        ; Setup parameters for call to function adc_mq5_ReadData
+        LCALL   ??adc_mq5_ReadData?relay
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock6
+//  141 
+//  142   #else
+//  143     return 0;
+//  144   #endif
+//  145 
+//  146 #else
+//  147   return 0;
+//  148 #endif // !defined(ZDO_COORDINATOR)
+//  149 }
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Sensor_Init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Sensor_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Sensor_StartPeriodic?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Sensor_StartPeriodic
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Sensor_StartMeasurement?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Sensor_StartMeasurement
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Sensor_ProcessEvent?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Sensor_ProcessEvent
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Sensor_GetDeviceType?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Sensor_GetDeviceType
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Sensor_ReadData?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Sensor_ReadData
+
+        END
+//  150 
+// 
+// 71 bytes in segment BANKED_CODE
+// 36 bytes in segment BANK_RELAYS
+//  1 byte  in segment XDATA_Z
+// 
+// 107 bytes of CODE  memory
+//   1 byte  of XDATA memory
+//
+//Errors: none
+//Warnings: none

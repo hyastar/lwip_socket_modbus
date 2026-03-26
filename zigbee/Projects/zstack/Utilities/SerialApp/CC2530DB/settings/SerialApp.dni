@@ -1,0 +1,38 @@
+[DebugChecksum]
+Checksum=-1154354291
+[DisAssemblyWindow]
+NumStates=_ 1
+State 1=_ 1
+[InstructionProfiling]
+Enabled=_ 0
+[CodeCoverage]
+Enabled=_ 0
+[StackPlugin]
+Enabled=1
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnHow=0
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[Breakpoints]
+Count=0
+[ChipconEmu]
+Stop timers on halt=0
+Leave target running=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Aliases]
+A0=_ "D:\information\IOT\IOT\Zigbee\创思通信\ZIGBEE开发套件WiFi模块MQTT资料V3.0\6.代码及其教程\3.高级篇-ZigBee协议栈应用与组网\12.串口透传之节点相互收发信息\Z-Stack透传\Components\zmac\f8w\zmac.c" ""
+A1=_ "D:\information\IOT\IOT\Zigbee\创思通信\ZIGBEE开发套件WiFi模块MQTT资料V3.0\6.代码及其教程\3.高级篇-ZigBee协议栈应用与组网\12.串口透传之节点相互收发信息\Z-Stack透传\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""
+A2=_ "E:\Coding\7 zigbee STM32\Components\mac\low_level\srf04\single_chip\mac_mcu.c" ""
+A3=_ "E:\Coding\7 zigbee STM32\Components\zmac\f8w\zmac.c" ""
+Count=4
+SuppressDialog=0
